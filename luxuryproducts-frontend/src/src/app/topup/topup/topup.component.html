@@ -1,0 +1,43 @@
+<div class="container mb-5" *ngIf="!giftCardToTopUp" >
+    <div class="card col-lg-8 col-md-10 col-12 mx-auto mt-5 p-4 ">
+        <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
+
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="mb-3">
+                    <h5 class="card-title">Enter GiftCard Below: </h5>
+                </div>
+                <input [(ngModel)]="searchValue" class="form-control" type="text" placeholder="Enter code here..." aria-label="default input example">
+
+                <button (click)="onSearch()"  class="btn btn-dark mt-3  minWidth" >Search</button>
+                <p *ngIf="errorMessage"> {{errorMessage}}</p>
+                <p *ngIf="successMessage"> {{successMessage}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mb-5" *ngIf="giftCardToTopUp">
+    <div class="card col-lg-8 col-md-10 col-12 mx-auto mt-5 p-4 ">
+        <div class="col-12 d-flex align-items-center justify-content-end mt-2 ">
+            <svg role="button" (click)="onCancel()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg " viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </div>
+        <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
+
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="mb-3">
+                    <h5 class="card-title">GiftCard: {{giftCardToTopUp.code}}</h5>
+                </div>
+                <p class="mb-1">Id: {{ giftCardToTopUp.id }}</p>
+                <p class="mb-1">Recipient Email: {{ giftCardToTopUp.recipientEmail }}</p>
+                <p class="mb-1">Expiry Date: {{ giftCardToTopUp.expiryDate }}</p>
+                <p class="mb-1">Current Balance: €{{ giftCardToTopUp.balance }}</p>
+                €<input [(ngModel)]="topUpAmount"  class="mb-1 m-1 mt-2 w-75 " id="number" type="number" value="0" min="0" />
+
+                <button (click)="onAddToBalance()" class="btn btn-dark mt-3" >Add to balance</button>
+
+            </div>
+        </div>
+    </div>
+</div>

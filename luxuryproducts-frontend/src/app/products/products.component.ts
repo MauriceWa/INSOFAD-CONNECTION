@@ -21,6 +21,7 @@ export class ProductsComponent {
       .getProducts()
       .subscribe((products: Product[]) => {
         this.loadingProducts = false;
+        products.sort((a,b) => a.id - b.id);
         this.products = products;
       });
   }

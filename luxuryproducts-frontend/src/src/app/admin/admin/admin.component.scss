@@ -1,0 +1,51 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  //background-color: #24ada2;
+
+}
+
+.innerContainer {
+  display: contents;
+
+}
+
+.innerContainer.header {
+  font-weight: bold;
+}
+
+.innerContainer p, .innerContainer button {
+  padding: 10px;
+  border: 1px solid #ffffff;
+}
+
+.tableButton {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+
+}
+
+.tableHeadersContainer {
+  display: contents;
+  border: #111111 solid 1px;
+}
+
+.tableHeadersContainer.header {
+  background-color: #a619f1;
+  font-weight: bold;
+}
+
+.tableHeadersContainer p, .tableHeadersContainer button {
+  padding: 10px;
+  border-bottom: 1px solid #111111;
+}
+
+
+
+
+
+.minWidth {
+  min-width: 200px;
+}

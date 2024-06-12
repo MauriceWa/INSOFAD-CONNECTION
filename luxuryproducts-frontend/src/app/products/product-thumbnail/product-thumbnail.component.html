@@ -1,6 +1,6 @@
 <div class="d-flex">
   <div class="p-2 w-100">
-    <img src="app/images/JADPROD.jpg" alt="{{ product.name }}">
+    <img src="{{ product.imageUrl }}" class="img-fluid rounded-3" alt="image of product">
     <h5>{{ product.name }}</h5>
     <p>{{ product.price | currency }}</p>
     <p>
@@ -13,9 +13,8 @@
       <small>{{ product.fitting }}</small>
     </p>
   </div>
-  <div class="p-2 flex-shrink-1">
-    <button (click)="buyProduct(product)" class="btn btn-primary float-right">
-      Buy</button>
-  </div>
+    <div class="p-2 flex-shrink-1">
+        <a [routerLink]="[product.id]" aria-label="Meer zien" class="btn btn-secondary ps-3 ms-5"  >Meer zien</a>
+    </div>
 </div>
 <hr>

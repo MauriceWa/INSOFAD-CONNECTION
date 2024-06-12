@@ -1,0 +1,17 @@
+<div class="products-container">
+
+<h3 class="mb-4">All Games</h3>
+
+
+@if (loadingProducts) {
+  <p>Loading products...</p>
+} @else {
+  @for (product of products; track $index) {
+    <app-product-thumbnail [product]="product" (onBuyProduct)="onBuyProduct(product)"></app-product-thumbnail>
+  }
+}
+    <div class="giftcard-link">
+        <a routerLink="/products/giftcard">Buy a Gift Card</a>
+<!--        er moet nog styling komen zoals een image etc-->
+    </div>
+</div>

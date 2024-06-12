@@ -1,1 +1,52 @@
-{{ product.name }}
+<div class="container">
+    <div class="row justify-content-md-center"> 
+        @if (product) {
+      <div class="col col-lg-6">
+        <p class="text-center mt-4 fs-1 fw-bold" aria-label="Product naam"> {{product.name}}</p>  
+        <img src={{product.imageUrl}} class="img-fluid rounded-3" aria-label="Product plaatje" alt="Picture clothing"/>  
+        <p class="text-left mt-2 fs-5 fw-bold" aria-label="Product Prijs"> Prijs: {{product.price}}</p> 
+        <!-- <button (click)="buyProduct(product)" *ngIf="languageService.language == 'NL'" class="btn btn-primary float-right text-right">Kopen</button>  
+        <button (click)="buyProduct(product)" *ngIf="languageService.language == 'EN'" class="btn btn-primary float-right text-right">Buy</button>   -->
+
+        <h4 class="text-right mt-5 fw-bold" aria-label="Product beschrijving">Beschrijving: </h4> 
+ 
+        <p class="text-right fst-normal fs-5 1h-sm" aria-label="Product beschrijving" >{{product.description}}</p>    
+ 
+
+        <h4 class="text-right mt-5 fw-bold " aria-label="Product Categorie" >Product Categorie: </h4> 
+        
+        <p class="text-right fst-normal fs-5" aria-label="Product Categorie"> {{product.category}}</p>  
+
+
+        <h4 class="text-right mt-5 fw-bold"  aria-label="Product Fitting" >Fitting: </h4> 
+ 
+        <p class="text-right fst-normal fs-5" aria-label="Product Fitting"> {{product.fitting}}</p>    
+
+
+        <h4 class="text-right mt-5 fw-bold" aria-label="Product Voorraad">Voorraad: </h4> 
+ 
+        <p class="text-right fst-normal fs-5" aria-label="Product quantity"> {{product.quantity}}</p>      
+
+        @if (product.variants.length > 0 && product.variants.length > 0 ) { 
+            @for (productvariant of product.variants; track $index) {
+                    {{productvariant.name}} <br>
+            @for (productoptions of productvariant.options; track $index) {   
+                 <input type="radio" aria-label="Product optie" name={{productvariant.name}} (click)="addToPrice(productoptions.added_price, productvariant, productoptions)"> {{productoptions.name}}:   Extra: price :{{productoptions.added_price}}
+
+                 <br><br>
+            }
+            } 
+
+        }
+        <br><br>
+
+        <button (click)="buyProduct(product)" aria-label="Product kopen" class="btn btn-primary float-right">
+            Buy</button> 
+            
+  
+      </div> 
+    } @else { 
+        <div aria-label="Product niet gevonden">Proudct niet gevonden</div>
+    } 
+    </div>   
+    </div>

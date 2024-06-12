@@ -1,0 +1,109 @@
+<section class="w-100 px-3 py-5 bg-light" style="border-radius: .5rem;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0">Shopping Cart</h3>
+                </div>
+
+                <div *ngFor="let product of products_in_cart; let i = index" class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <img src="{{ product.imgURL }}" class="img-fluid rounded" alt="Product Image">
+                            </div>
+                            <div class="col-md-4">
+                                <p class="lead mb-1">{{ product.name }}</p>
+                                <p>Quantity: {{ product.amount }}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>{{ product.price | currency: 'EUR' }}</h5>
+                                <p>Total: {{ product.price * product.amount | currency: 'EUR' }}</p>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <button (click)="removeProductFromCart(i)" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngFor="let giftCard of giftCards_in_cart; let i = index" class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-10">
+                                <p class="lead mb-1">Gift Card</p>
+                                <p>Amount: {{ giftCard.amount | currency: 'EUR' }}</p>
+                                <p>Recipient Email: {{ giftCard.recipientEmail }}</p>
+                                <p>Code:  Available upon purchase</p>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <button (click)="removeGiftCardFromCart(i)" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let topup of topUpsInCart; let i = index" class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-10">
+                                <p class="lead mb-1">Top Up</p>
+                                <p>Additional Amount: {{ topup.topUpAmount | currency: 'EUR' }}</p>
+                                <p>Gift Card Code : {{ topup.giftCardCode }}</p>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <button (click)="removeTopUpsFromCart(i)" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="errorNotLoggedInMessage">
+                    <p>{{errorNotLoggedInMessage}}</p>
+                </div>
+
+                <div class="col-md-12 mt-5">
+                    <div class="d-flex justify-content-end">
+                        <p class="lead me-4">Total: {{ getTotalPrice() | currency: 'EUR' }}</p>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Gift Card Code" [(ngModel)]="giftCardCode">
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button (click)="applyGiftCard()" class="btn btn-primary">Apply Gift Card</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="appliedGiftCards.length !== 0" class="card mb-4">
+                    <div class="card-body" *ngFor="let appliedGiftCard of appliedGiftCards;">
+                        <div class="row align-items-center">
+                            <div class="col-md-10">
+                                <p class="lead mb-1">Applied Gift Card</p>
+                                <p>Balance Remaining: {{ appliedGiftCard.balance | currency: 'EUR' }}</p>
+                                <p>Code: {{ appliedGiftCard.code }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button [disabled]="onInvalidOrder()" (click)="clearCart()" class="btn btn-secondary w-100">
+                            Empty shopping cart
+                        </button>
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <button [disabled]="onInvalidOrder()" (click)="onOrder()" class="btn btn-primary w-100">
+                           Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

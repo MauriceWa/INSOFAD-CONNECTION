@@ -1,0 +1,23 @@
+<div class="giftcard-container">
+    <h2>Buy a Gift Card</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="amount">Current Amount: €{{ amount}}</label>
+            <div id="amount" class="button-group">
+                <button type="button"  class="btn" (click)="setAmount(10)">€10</button>
+                <button type="button"  class="btn" (click)="setAmount(25)">€25</button>
+                <button type="button"  class="btn" (click)="setAmount(50)">€50</button>
+                <button type="button"  class="btn" (click)="setAmount(100)">€100</button>
+                <button type="button"  class="btn" (click)="setAmount(250)">€250</button>
+            </div>
+        </div>
+        <div>
+            <label for="email">Recipient Email:</label>
+            <input type="email" id="email" [(ngModel)]="recipientEmail" name="recipientEmail" required>
+        </div>
+        <button type="submit">Buy Gift Card</button>
+    </form>
+    <div *ngIf="message" class="message">
+        {{ message }}
+    </div>
+</div>
