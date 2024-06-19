@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7485fec-6dbd-4967-abd3-90a59c3e4e95" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fdsddLk3uSlDl2q7R8fX4LeX5P" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ToDoAppDeel3Application.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "com.github.iguissouma.nxconsole.dontShowDeprecationNoticeAgain": "true",
+    "git-widget-placeholder": "giftcards",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Kees/Documents/GitHub/INSOFAD_28_frontend/insofad_28/insofad_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ivan Kroetkov\Desktop\JavaProjects\INSOFAD_28_backend\src\main\java\com\example\todoappdeel3\dto" />
+      <recent name="C:\Users\Ivan Kroetkov\Desktop\JavaProjects\INSOFAD_28_backend\src\main\java\com\example\todoappdeel3\dao" />
+      <recent name="C:\Users\Ivan Kroetkov\Desktop\JavaProjects\INSOFAD_28_backend\src\main\java\com\example\todoappdeel3\services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.todoappdeel3.dto" />
+      <recent name="com.example.todoappdeel3.models" />
+      <recent name="com.example.todoappdeel3.dao" />
+      <recent name="com.example.todoappdeel3.services" />
+      <recent name="com.example.todoappdeel3.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ToDoAppDeel3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ToDoAppDeel3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.todoappdeel3.ToDoAppDeel3Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7485fec-6dbd-4967-abd3-90a59c3e4e95" name="Changes" comment="" />
+      <created>1714142378019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714142378019</updated>
+      <workItem from="1714142379124" duration="221000" />
+      <workItem from="1717492802197" duration="318000" />
+      <workItem from="1717493136774" duration="3180000" />
+      <workItem from="1717507099768" duration="1590000" />
+      <workItem from="1717518242304" duration="667000" />
+      <workItem from="1717589634660" duration="708000" />
+      <workItem from="1717880833791" duration="5167000" />
+      <workItem from="1717940741875" duration="1587000" />
+      <workItem from="1717945529998" duration="18387000" />
+      <workItem from="1718132748790" duration="1191000" />
+      <workItem from="1718213066633" duration="599000" />
+      <workItem from="1718349412435" duration="1542000" />
+      <workItem from="1718355457561" duration="1487000" />
+      <workItem from="1718638511969" duration="710000" />
+      <workItem from="1718731182596" duration="599000" />
+      <workItem from="1718788290832" duration="12000" />
+      <workItem from="1718818384821" duration="2382000" />
+    </task>
+    <task id="LOCAL-00001" summary="Admin logica voor backend">
+      <option name="closed" value="true" />
+      <created>1717495955197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717495955197</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixes voor de front-end">
+      <option name="closed" value="true" />
+      <created>1717963416827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717963416827</updated>
+    </task>
+    <task id="LOCAL-00003" summary="product quantity aanpassen in de admin panel fix">
+      <option name="closed" value="true" />
+      <created>1718006877994</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718006877994</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <option name="closed" value="true" />
+      <created>1718007232713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718007232713</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed admin panel errors">
+      <option name="closed" value="true" />
+      <created>1718012997796</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718012997796</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed backend">
+      <option name="closed" value="true" />
+      <created>1718355499244</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718355499244</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Admin logica voor backend" />
+    <MESSAGE value="fixes voor de front-end" />
+    <MESSAGE value="product quantity aanpassen in de admin panel fix" />
+    <MESSAGE value="update" />
+    <MESSAGE value="fixed admin panel errors" />
+    <MESSAGE value="fixed backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed backend" />
+  </component>
+</project>

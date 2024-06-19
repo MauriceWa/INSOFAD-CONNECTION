@@ -1,0 +1,58 @@
+<h3>Update Variant and Options</h3>
+<br>
+<form>
+    @if (product) {
+        <div>
+            <label>Select the variant</label> <br>
+
+            <select name="variantDropDown" (change)="onSelectionChange($event)" id="variantDropDown">
+                <option disabled selected>variants</option>
+                <option *ngFor="let variant of product.variants" [value]=variant.id> {{ variant.name }}</option>
+            </select>
+            <br><br>
+
+        </div>
+
+        <br>
+        @if (selectedProductVariant) {
+            <div class="form-group">
+                <label for="variantName">Variant Name:</label>
+                <input class="form-control" id="variantName" name="variantName" type="text"
+                       [value]="selectedProductVariant.name">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="variantDescription">Variant Description:</label>
+                <input class="form-control" id="variantDescription" name="variantDescription" type="text"
+                       [value]="selectedProductVariant.description">
+            </div>
+
+            <br>
+
+            <div id="optionGroup">
+                <div *ngFor="let option of selectedProductVariant.options, let i = index;">
+
+                    <div class="form-group">
+                        <label for="optionName" [id]="option.id" >Option Name:</label>
+                        <input class="form-control" id="optionName" name="optionName" [value]="option.name" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="optionAddedPrice">Option added price:</label>
+                        <input class="form-control" id="optionAddedPrice" name="optionAddedPrice"
+                               [value]="option.added_price" type="text">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-success" (click)="sendUpdatedVariant()" type="button">Update</button>
+
+        }
+
+        <br>
+
+
+    }
+
+</form>

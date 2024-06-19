@@ -1,0 +1,56 @@
+<h3>Admin panel</h3>
+
+<div *ngIf="loadingProducts">
+    <p>Loading products...</p>
+</div>
+
+<section class="w-100 px-3 py-5" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-12">
+            <div *ngFor="let product of products; let i = index">
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img src="{{product.imageUrl}}" class="img-fluid rounded-3" aria-label="Product plaatje" alt="{{product.name}}">
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <label>Product name</label>
+                                <p class="lead fw-normal mb-2" aria-label="Product naam">{{product.name}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Stock</label>
+                                <br>
+                                <input class="form-control" type="number" [id]="product.id" name="quantity" [value]=" product.quantity " step="1">
+                                <br>
+                                <button type="button" class="btn btn-primary" (click)="updateProductQuantity(product)"> Update Quantity </button>
+                            </div>
+                            <div class="row d-flex flex-wrap">
+                                <div class="col" *ngFor="let variant of product.variants; let i = index">
+                                    <label>Variant and Option</label>
+                                    <div *ngFor="let option of variant.options; let i = index">
+                                        <p class="lead fw-normal mb-2" aria-label="Variant naam en optie naam">{{variant.name}} : {{option.name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-xl-3 text-start">
+                                <a aria-label="Add variant and options" [routerLink]="['/admin/add-variant', product.id]" class="text-blue">Add variant & Option</a>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3 text-start">
+                                <a aria-label="Update variant and options" [routerLink]="['/admin/update-variant', product.id]" class="text-black">Update variant & Option</a>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3 text-start">
+                                <a aria-label="Delete variant and options" [routerLink]="['/admin/delete-variant', product.id]" class="text-danger">Delete variant & Option</a>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3 text-start">
+                                <a aria-label="Update Stock" [routerLink]="['/admin/delete-variant', product.id]" class="text-danger">Update Stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

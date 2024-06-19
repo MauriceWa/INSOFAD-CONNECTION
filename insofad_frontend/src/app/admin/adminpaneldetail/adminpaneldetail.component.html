@@ -1,0 +1,53 @@
+<script src="adminpaneldetail.component.spec.ts"></script>
+<div class="row justify-content-md-center">
+    @if (product) {
+        <div class="col col-lg-6">
+            <p class="text-center mt-4 fs-1 fw-bold" aria-label="Product naam"> {{product.name}}</p>
+            <img src={{product.imageUrl}} class="img-fluid rounded-3" aria-label="Product plaatje" alt="Picture clothing"/>
+            <p class="text-left mt-2 fs-5 fw-bold" aria-label="Product Prijs"> Prijs: {{product.price}}</p>
+
+            <h4 class="text-right mt-5 fw-bold" aria-label="Product beschrijving">Beschrijving: </h4>
+
+            <p class="text-right fst-normal fs-5 1h-sm" aria-label="Product beschrijving" >{{product.description}}</p>
+
+
+            <h4 class="text-right mt-5 fw-bold " aria-label="Product Categorie" >Product Categorie: </h4>
+
+            <p class="text-right fst-normal fs-5" aria-label="Product Categorie"> {{product.category}}</p>
+
+
+            <h4 class="text-right mt-5 fw-bold"  aria-label="Product Fitting" >Fitting: </h4>
+
+            <p class="text-right fst-normal fs-5" aria-label="Product Fitting"> {{product.fitting}}</p>
+
+
+            <h4 class="text-right mt-5 fw-bold" aria-label="Product Voorraad">Voorraad: </h4>
+
+            <p class="text-right fst-normal fs-5" aria-label="Product quantity"> {{product.quantity}}</p>
+
+            @if (product.variants.length > 0 && product.variants.length > 0 ) {
+                @for (productvariant of product.variants; track $index) {
+
+                    <input type="checkbox" class="fw-bold " (change)="toggleDiv(productvariant.id)" aria-label="Product optie" name={{productvariant.name}} > <strong>{{productvariant.name}}</strong> <br> <br>
+                    <div id={{productvariant.id}}>
+                        @for (productoptions of productvariant.options; track $index) {
+
+                            <input type="checkbox" id={{productoptions.id}} (change)="selectedOption(productoptions.id)" aria-label="Product optie" name={{productoptions.name}} > {{productoptions.name}}:   Extra: price :{{productoptions.added_price}}
+
+                            <br><br>
+
+                        }
+                    </div>
+                }
+
+
+            }
+
+            <button aria-label="Product kopen" (click)="postDeleteVariantOptions()"  routerLink="/admin" class="btn btn-danger float-right">
+                Delete</button>
+            <br><br>
+        </div>
+    } @else {
+        <div aria-label="Product niet gevonden">Product not found</div>
+    }
+</div>
