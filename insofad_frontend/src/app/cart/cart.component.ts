@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
     this.cartService.$topUpsInCart.subscribe((topUps: Topup[]) => {
       this.topUpsInCart = topUps;
       this.updateAmountOfProducts();
-    })
+    });
 
     this.checkLoginState();
   }
@@ -89,7 +89,7 @@ export class CartComponent implements OnInit {
     if (this.appliedGiftCards) {
       this.appliedGiftCards.forEach((giftCard) => {
         total -= giftCard.balance;
-      })
+      });
     }
     return total < 0 ? 0 : total;
   }
@@ -124,7 +124,15 @@ export class CartComponent implements OnInit {
       this.router.navigateByUrl('/auth/login');
     } else {
       this.cartService.setAppliedGiftCardCodes(this.appliedGiftCards.map(giftcard => giftcard.code));
-      this.router.navigateByUrl('/orders');
+      const email = this.authService.getEmail();
+      this.cartService.createOrder(email).subscribe(
+          response => {
+            this.router.navigate(['/order']);
+          },
+          error => {
+            console.error('Failed to create order:', error);
+          }
+      );
     }
   }
 

@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name = "Users")
@@ -24,7 +23,7 @@ public class CustomUser implements UserDetails {
 
     @OneToMany(mappedBy = "customUser", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<PlacedOrder> placedOrders;
+    private Set<Order> Orders;
 
     public CustomUser() {
     }
@@ -116,10 +115,11 @@ public class CustomUser implements UserDetails {
         this.role = role;
     }
 
-    public Set<PlacedOrder> getOrders() {
-        return placedOrders;
+    public Set<Order> getOrders() {
+        return Orders;
     }
-    public void setOrders(Set<PlacedOrder> placedOrders) {
-        this.placedOrders = placedOrders;
+    public void setOrders(Set<Order> placedOrders) {
+
+        this.Orders = Orders;
     }
 }

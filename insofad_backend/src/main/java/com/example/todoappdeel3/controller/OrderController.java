@@ -45,8 +45,6 @@ public class OrderController {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
-
-
             return ResponseEntity.internalServerError().build();
         }
     }

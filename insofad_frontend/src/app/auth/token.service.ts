@@ -18,13 +18,26 @@ export class TokenService {
     return localStorage.getItem(this._localStorageTokenKey);
   }
 
-  private getPayload(token: string): JwtPayload{
-    const jwtPayload = token.split('.')[1];
-    return JSON.parse(atob(jwtPayload));
+  private getPayload(token: string): JwtPayload | null {
+    try {
+      const parts = token.split('.');
+      if (parts.length !== 3) {
+        throw new Error('Invalid token format');
+      }
+      const jwtPayload = parts[1];
+      return JSON.parse(atob(jwtPayload));
+    } catch (error) {
+      console.error('Error decoding token payload:', error);
+      return null;
+    }
   }
 
   private tokenExpired(token: string): boolean {
-    const expiry = this.getPayload(token).exp;
+    const payload = this.getPayload(token);
+    if (!payload) {
+      return true;
+    }
+    const expiry = payload.exp;
     return (Math.floor((new Date).getTime() / 1000)) >= expiry;
   }
 
@@ -32,9 +45,9 @@ export class TokenService {
     localStorage.removeItem(this._localStorageTokenKey);
   }
 
-  public isValid(): boolean{
+  public isValid(): boolean {
     const token: string | null = this.loadToken();
-    
+
     if(!token){
       return false;
     }
@@ -46,35 +59,29 @@ export class TokenService {
     return true;
   }
 
-  public getEmail(): string{
-
+  public getEmail(): string {
     const token = this.loadToken();
     if(token != null){
-      const checkedToken : string = token!;
-      const email = this.getPayload(checkedToken).email;
-      return email;
-    } else {
-      //error message toevoegen
-      return "";
+      const payload = this.getPayload(token);
+      if (payload && payload.email) {
+        return payload.email;
+      }
     }
+    return "";
   }
 
-  public getUserId():number{
-
+  public getUserId(): number {
     const token = this.loadToken();
 
     console.log(token);
 
     if(token != null){
-      const checkedToken : string = token!;
-      const userId = this.getPayload(checkedToken).userId;
-
-      return userId;
-    } else {
-      //error message toevoegen
-      return  0;
+      const payload = this.getPayload(token);
+      if (payload && payload.userId) {
+        return payload.userId;
+      }
     }
-
+    return 0;
   }
 
 }

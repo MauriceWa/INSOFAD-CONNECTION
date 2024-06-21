@@ -11,7 +11,7 @@ public class TopUp {
     public TopUp() {
     }
 
-    public TopUp(String giftCardCode, double topUpAmount, PlacedOrder placedOrder) {
+    public TopUp(String giftCardCode, double topUpAmount, Order Order) {
         this.giftCardCode = giftCardCode;
         this.topUpAmount = topUpAmount;
     }

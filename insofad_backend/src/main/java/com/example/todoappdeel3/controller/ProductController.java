@@ -100,8 +100,8 @@ public class ProductController {
     }
 
     @PostMapping("/{productId}/addVariants")
-    public ResponseEntity<String> AddVariantOptions(@PathVariable Long productId, @RequestBody ProductDTO productDTO){
-        this.productDAO.AddVariantOptions(productId, productDTO);
+    public ResponseEntity<String> addVariantOptions(@PathVariable Long productId, @RequestBody ProductDTO productDTO){
+        this.productDAO.addVariantOptions(productId, productDTO);
         return ResponseEntity.ok("Product variant and options are added to a product ");
     }
 

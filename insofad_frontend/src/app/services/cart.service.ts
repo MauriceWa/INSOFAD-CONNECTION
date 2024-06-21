@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import { Product } from '../models/product.model';
 import { ProductVariant } from '../models/productvariant.model';
 import { Options } from '../models/options.model';
 import { GiftCard } from '../models/giftcard.model';
 import { Topup } from '../models/topup.model';
+import { Order } from '../models/order.model';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { environment } from '../../environments/environment';
 
 const localStorageKey: string = "products-in-cart";
 const localStorageGiftCardKey: string = "giftcards-in-cart";
@@ -24,20 +27,40 @@ export class CartService {
   public $topUpsInCart: BehaviorSubject<Topup[]> = new BehaviorSubject<Topup[]>([]);
   private userEmailKey: string = 'user-email';
   private productsInCartSubject = new Subject<Product[]>();
+  private orderEndpoint: string = environment.base_url + "/orders";
+
 
   public $productVariantInCart: BehaviorSubject<ProductVariant[]> = new BehaviorSubject<ProductVariant[]>([]);
   public $optionsInCart : BehaviorSubject<Options[]> = new BehaviorSubject<Options[]>([]);
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.loadProductsFromLocalStorage();
     this.loadGiftCardsFromLocalStorage();
     this.loadTopUpsFromLocalStorage();
   }
 
+
   public addProductToCart(product: Product) {
-    this.productsInCart.push(product);
+    const existingProduct = this.productsInCart.find(p => p.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity += product.quantity;
+    } else {
+      product.quantity = 1;
+      this.productsInCart.push(product);
+    }
     this.saveProductsAndNotifyChange();
   }
+  public createOrder(email: string) {
+    const order = new Order(this.productsInCart, email);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      responseType: 'text' as 'json'
+    };
+    return this.http.post(this.orderEndpoint, order, httpOptions);
+  }
+
   public setAppliedGiftCardCodes(listOfCodes: string[])
   {
     this.currentAppliedGiftCardCodes = listOfCodes;
@@ -139,7 +162,7 @@ export class CartService {
     if (index >= 0 && index < this.productsInCart.length) {
       const product = this.productsInCart[index];
       product.quantity = quantity;
-      this.productsInCartSubject.next(this.productsInCart);
+      this.saveProductsAndNotifyChange();
     }
   }
 
@@ -154,9 +177,9 @@ export class CartService {
   }
 
   private loadProductsFromLocalStorage(): void {
-    let productsOrNull = localStorage.getItem(localStorageKey);
+    const productsOrNull = localStorage.getItem(localStorageKey);
     if (productsOrNull != null) {
-      let products: Product[] = JSON.parse(productsOrNull);
+      const products: Product[] = JSON.parse(productsOrNull);
       this.productsInCart = products;
       this.$productInCart.next(this.productsInCart.slice());
     }

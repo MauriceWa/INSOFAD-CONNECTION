@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthResponse } from './auth-response.model';
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthRequest } from './auth-request.model';
 import { TokenService } from './token.service';
 import { User } from "../models/user.model";
@@ -66,5 +66,9 @@ export class AuthService {
         this.tokenService.removeToken();
         this.$userIsLoggedIn.next(false);
         this.user.next(null);
+    }
+
+    public getEmail(): string {
+        return this.tokenService.getEmail();
     }
 }

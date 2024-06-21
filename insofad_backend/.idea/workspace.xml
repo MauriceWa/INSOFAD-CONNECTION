@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7485fec-6dbd-4967-abd3-90a59c3e4e95" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/dao/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/dao/OrderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/models/CustomUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/models/CustomUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todoappdeel3/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insofad_frontend/.angular/cache/17.3.8/bol-com-webshop/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../insofad_frontend/.angular/cache/17.3.8/bol-com-webshop/.tsbuildinfo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,29 +32,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ToDoAppDeel3Application.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "com.github.iguissouma.nxconsole.dontShowDeprecationNoticeAgain": "true",
-    "git-widget-placeholder": "giftcards",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kees/Documents/GitHub/INSOFAD_28_frontend/insofad_28/insofad_backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ToDoAppDeel3Application.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.github.iguissouma.nxconsole.dontShowDeprecationNoticeAgain&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;giftcards&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kees/Documents/GitHub/INSOFAD_28_frontend/insofad_28/insofad_backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ivan Kroetkov\Desktop\JavaProjects\INSOFAD_28_backend\src\main\java\com\example\todoappdeel3\dto" />
@@ -100,6 +103,7 @@
       <workItem from="1718731182596" duration="599000" />
       <workItem from="1718788290832" duration="12000" />
       <workItem from="1718818384821" duration="2382000" />
+      <workItem from="1718871670189" duration="2476000" />
     </task>
     <task id="LOCAL-00001" summary="Admin logica voor backend">
       <option name="closed" value="true" />

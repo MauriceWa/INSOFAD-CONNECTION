@@ -8,38 +8,33 @@ import org.springframework.lang.Nullable;
 import java.util.List;
 import java.util.Set;
 
+
 @Entity
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
-    @Column(length = 500)
-    private String description;
     private double price;
-    @Column(nullable = false)
-    private int amount;
-    private String imgURL;
-    @Column(length = 500)
-    private String specifications;
-    private String releaseDate;
-    private String publisher;
+    private String description;
     private String durability;
     private String fitting;
+    private String imageUrl;
     private Integer quantity;
     private boolean isFinished = false;
+
+    @ManyToMany
+    @JsonBackReference
+    private List<Order> order;
+
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JsonBackReference
     @Nullable
     private Category category;
 
-    @ManyToMany
-    @JsonBackReference
-    private List<Order> orders; // Renamed from order to orders
 
-    @OneToMany(mappedBy = "orderItem")
+    @OneToMany(mappedBy = "product")
     @JsonManagedReference
     public Set<ProductVariant> variants;
 
@@ -47,142 +42,129 @@ public class Product {
     @JsonManagedReference
     public List<OrderProduct> orderProducts;
 
+
+
     public Product() {
+
     }
 
-    public Product(int amount, String name, String description, double price, String imgURL, Category category, String specifications, String releaseDate, String publisher, String durability, String fitting, Integer quantity) {
-        this.amount = amount;
+    public Product(String name, String description, double price, Category category, String durability, String fitting, String imageUrl, int quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.imgURL = imgURL;
         this.category = category;
-        this.specifications = specifications;
-        this.releaseDate = releaseDate;
-        this.publisher = publisher;
         this.durability = durability;
         this.fitting = fitting;
+        this.imageUrl = imageUrl;
         this.quantity = quantity;
     }
 
-    // Getters and setters for new fields
+
+    public Category getCategory() {
+        return category;
+    }
+
     public String getDurability() {
         return durability;
     }
+
     public void setDurability(String durability) {
         this.durability = durability;
     }
 
+
     public String getFitting() {
         return fitting;
     }
+
     public void setFitting(String fitting) {
         this.fitting = fitting;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public String getImageURL() {
+        return imageUrl;
     }
 
-    public boolean isFinished() {
-        return isFinished;
-    }
-    public void setFinished(boolean finished) {
-        isFinished = finished;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    // Existing getters and setters
-    public long getId() {
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
+    public double getPrice() { return price; }
+
+    public void setPrice(double price) { this.price = price; }
+
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
+    public boolean isFinished() {
+        return isFinished;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 
-    public String getImgURL() {
-        return imgURL;
-    }
-    public void setImgURL(String imgURL) {
-        this.imgURL = imgURL;
+    public List<Order> getOrder() {
+        return order;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public String getSpecifications() {
-        return specifications;
-    }
-    public void setSpecifications(String specifications) {
-        this.specifications = specifications;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setOrder(List<Order> order) {
+        this.order = order;
     }
 
     public Set<ProductVariant> getVariants() {
         return variants;
     }
+
     public void setVariants(Set<ProductVariant> variants) {
         this.variants = variants;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public List<OrderProduct> getOrderProducts() {
         return orderProducts;
     }
+
     public void setOrderProducts(List<OrderProduct> orderProducts) {
         this.orderProducts = orderProducts;
     }
+
+
 }

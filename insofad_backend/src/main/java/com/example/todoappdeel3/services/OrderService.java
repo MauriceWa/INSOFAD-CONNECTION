@@ -20,11 +20,11 @@ public class OrderService {
     public List<Order> findOrderUser(long userId) {
         CustomUser user = userDAO.getUser(userId);
 
-        if (user.orders == null) {
+        if (user.getOrders() == null) {
             return new ArrayList<>();
         } else {
-            return user.orders;
+
+            return new ArrayList<>(user.getOrders());
         }
     }
-
 }
